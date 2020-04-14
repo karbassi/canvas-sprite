@@ -1,0 +1,21 @@
+body,
+html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  user-select: none;
+  background-color: #ccc;
+}
+
+.world {
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
