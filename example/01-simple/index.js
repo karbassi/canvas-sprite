@@ -5,8 +5,6 @@ let walkingSprite;
 
 function init() {
   walkingSprite = new Sprite({
-    x: 0,
-    y: 0,
     frameCount: 6,
     src: "guy.png",
   });

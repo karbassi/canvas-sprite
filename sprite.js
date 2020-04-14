@@ -19,13 +19,18 @@ class Sprite {
       frameCount: -1,
     }
   ) {
-    if (options.frameCount <= 0) {
+    console.log(options);
+
+    if (!options.frameCount || options.frameCount <= 0) {
       throw Error("Sprite: 'frameCount' needs to be greater than 0.");
     }
 
     if (options.src === "") {
       throw Error("Sprite: 'src' must be set.");
     }
+
+    this.x = options.x || this.x;
+    this.y = options.y || this.y;
 
     this.frameCount = options.frameCount;
     this.src = options.src;
@@ -35,20 +40,28 @@ class Sprite {
 
   _loadImage() {
     this.image = new Image();
-    this.image.onload = (event) => this.onload(event);
-    this.image.onerror = (event) => this.onerror(event);
+    this.image.onload = (event) => this._onload(event);
+    this.image.onerror = (event) => this._onerror(event);
     this.image.src = this.src;
   }
 
-  onload(event) {
+  _onload(event) {
     const obj = event.target;
 
     // Update the class's image width/height
     this.width = obj.width / this.frameCount;
     this.height = obj.height;
+
+    if (this.onload) {
+      this.onload(event);
+    }
   }
 
-  onerror(event) {
+  _onerror(event) {
+    if (this.onerror) {
+      this.onerror(event);
+    }
+
     throw Error("Sprite image could not load at location: " + event.target.src);
   }
 
