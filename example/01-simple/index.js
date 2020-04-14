@@ -1,13 +1,17 @@
 const canvas = document.querySelector(".world");
 const ctx = canvas.getContext("2d");
 
-let walkingSprite;
+let walkingLeft;
 
 function init() {
-  walkingSprite = new Sprite({
-    frameCount: 6,
-    src: "guy.png",
+  walkingLeft = new Sprite({
+    frameCount: 9,
+    src: "./img/right.png",
   });
+
+  walkingLeft.onload = () => {
+    walkingLeft.draw();
+  };
 
   update();
 }
@@ -16,11 +20,11 @@ function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // Move to center
-  walkingSprite.x = (canvas.width - walkingSprite.width) / 2;
-  walkingSprite.y = (canvas.height - walkingSprite.height) / 2;
+  walkingLeft.x = (canvas.width - walkingLeft.width) / 2;
+  walkingLeft.y = (canvas.height - walkingLeft.height) / 2;
 
-  walkingSprite.draw();
-  walkingSprite.nextFrame();
+  walkingLeft.draw();
+  walkingLeft.nextFrame();
 
   window.requestAnimationFrame(update);
 }

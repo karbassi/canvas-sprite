@@ -19,8 +19,6 @@ class Sprite {
       frameCount: -1,
     }
   ) {
-    console.log(options);
-
     if (!options.frameCount || options.frameCount <= 0) {
       throw Error("Sprite: 'frameCount' needs to be greater than 0.");
     }
