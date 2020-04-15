@@ -22,8 +22,8 @@ function draw() {
   walkingSprite.x = (canvas.width - walkingSprite.width) / 2;
   walkingSprite.y = (canvas.height - walkingSprite.height) / 2;
 
-  walkingSprite.nextFrame();
   walkingSprite.draw();
+  walkingSprite.nextFrame();
 }
 
 init();
