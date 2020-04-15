@@ -1,7 +1,6 @@
 const canvas = document.querySelector(".world");
 const ctx = canvas.getContext("2d");
 
-let direction = "right";
 let guy;
 let walkingRight;
 let walkingLeft;
@@ -51,19 +50,15 @@ function onKeyDown(event) {
   const key = event.key.toLowerCase();
 
   if (key === "a" || key === "arrowleft") {
-    direction = "left";
     guy = walkingLeft;
     guy.x -= 1;
   } else if (key === "d" || key === "arrowright") {
-    direction = "right";
     guy = walkingRight;
     guy.x += 1;
   } else if (key === "w" || key === "arrowup") {
-    direction = "up";
     guy = walkingUp;
     guy.y -= 1;
   } else if (key === "s" || key === "arrowdown") {
-    direction = "down";
     guy = walkingDown;
     guy.y += 1;
   }
